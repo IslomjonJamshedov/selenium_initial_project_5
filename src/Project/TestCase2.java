@@ -13,12 +13,14 @@ public class TestCase2 {
             WebDriver driver = Driver.getDriver();
             driver.get("https://automationexercise.com/");
 
-            List<WebElement> header = driver.findElements(By.cssSelector("ul[class=\"nav navbar-nav\"]"));
+            List<WebElement> header = driver.findElements(By.cssSelector(".nav.navbar-nav li"));
+            String[] element = {"Home", "Products", "Cart", "Signup / Login", "Test Cases", "API Testing",
+                    "Video Tutorials", "Contact us"};
 
-            for (WebElement webElement : header){
-                System.out.println(webElement.getText());
-                System.out.println(webElement.isDisplayed());
-                System.out.println(webElement.isEnabled());
+            for (int i = 0; i < header.size(); i++) {
+                System.out.println(header.get(i).getText().equals(element[i]));
+                System.out.println(header.get(i).isDisplayed());
+                System.out.println(header.get(i).isEnabled());
             }
 
         } catch (Exception e) {
